@@ -1,0 +1,46 @@
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", monospace;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Buttons {
+  margin: auto;
+  width: 190px;
+}
+
+.Footer {
+  color: black;
+  text-align: center;
+  margin-top: 20px;
+
+  position: absolute;
+  bottom: 0;
+}
+
+.Footer a {
+  text-decoration: none;
+  color: black;
+}
+
+.Header {
+  margin: 20px;
+  text-align: center;
+}
+
+.Header h1 {
+  text-transform: uppercase;
+}
+
+.Header p {
+  margin: 10px;
+}

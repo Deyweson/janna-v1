@@ -1,11 +1,21 @@
-import { PlayByutton } from "./components/PlayButton";
+import { useState } from 'react'
+import './assets/style.css'
+import { Buttons } from './components/buttons/Buttons'
+import { Footer } from './components/Footer'
+import { Header } from './components/Header'
 
 function App(): JSX.Element {
 
+  const [count, setCount] = useState<number>(0)
+
   return (
     <>
-      <PlayByutton />
-      <img src="./assets/play.png" alt="123" />
+
+      <Header count={count} />
+
+      <Buttons setCount={setCount} />
+
+      <Footer />
     </>
   )
 }
