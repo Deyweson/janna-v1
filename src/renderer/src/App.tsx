@@ -13,7 +13,7 @@ function App(): JSX.Element {
 
       <Header count={count} />
 
-      <Buttons setCount={setCount} />
+      <Buttons count={count} setCount={setCount} />
 
       <Footer />
     </>

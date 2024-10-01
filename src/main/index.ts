@@ -1,7 +1,10 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
-import { join } from 'path'
+import path, { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import remote from '@electron/remote/main'
+import { MakeVideo } from './make-video'
+import { TakeScreenShot } from './take-screen-shot'
 
 function createWindow(): void {
   // Create the browser window.
@@ -16,6 +19,8 @@ function createWindow(): void {
       sandbox: false
     }
   })
+
+  remote.enable(mainWindow.webContents);
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
@@ -49,9 +54,18 @@ app.whenReady().then(() => {
     optimizer.watchWindowShortcuts(window)
   })
 
+
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
 
+
+
+  TakeScreenShot()
+  MakeVideo()
+
+  
+  let testeffmpegPath = path.join(app.getAppPath(),'..' ,'ffmpeg', 'win');
+  console.log(testeffmpegPath)
   createWindow()
 
   app.on('activate', function () {
